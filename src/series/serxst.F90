@@ -25,7 +25,7 @@ function series_isstep(F_varname_S) result(F_istat_L)
    logical :: F_istat_L
    !*@/
 #include "series.cdk"
-   integer, external :: series_isvar
+   logical, external :: series_isvar
    character(len=32) :: varname_S
    !---------------------------------------------------------------
    F_istat_L = .false.

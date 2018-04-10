@@ -515,7 +515,7 @@ subroutine pbl_difver1(db, dsiz, f, fsiz, v, vsiz, &
    call serxst2(V(FL),   'FL', TRNCH, N, 1, 0., 1., -1)
 
    ! DIAGNOSTICS POUR LE MODELE CTM
-   if (any(fluvert == (/'MOISTKE', 'CLEF '/))) then
+   if (any(fluvert == (/'MOISTKE', 'CLEF   '/))) then
       call CTMDIAG(DB,F,V,DSIZ,FSIZ,VSIZ,N,NK)
       call serxst2(v(ue), 'UE', TRNCH, N, 1, 0.0, 1.0, -1)
    endif

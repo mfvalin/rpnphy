@@ -105,7 +105,7 @@
 
 ! ISCCP
 #include "mcica.cdk"
-      integer, external :: series_isstep
+      logical, external :: series_isstep
 
       real, parameter :: seuil = 1.e-3
 

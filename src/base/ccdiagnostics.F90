@@ -60,7 +60,7 @@ subroutine ccdiagnostics(fbus,fsiz,vbus,vsiz, &
 !Implicites
 
   include "thermoconsts.inc"
-  integer, external :: series_isstep
+  logical, external :: series_isstep
 
   integer               :: i,k,ik,istat
   real                  :: tcel,frac,airdenm1

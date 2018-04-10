@@ -11,7 +11,7 @@ git clone ssh://localhost/~armnenv/GitDepots/rpnphy.git
 cd rpnphy
 #git checkout -b tmp rpnphy_VERSION
 #update version number (including leading 'x/') in ./include/Makefile.local.mk
-. ./.setenv.dot
+. ./.setenv.dot --cmc # --science
 ./bin/ouv_exp_rpnphy
 rdemklink
 make buildclean
@@ -54,7 +54,7 @@ make buildclean
 
 ssh MY_INSTALL_MACH
 cd /PATH/
-. ./.setenv.dot
+. ./.setenv.dot --cmc # --science
 make components_install CONFIRM_INSTALL=yes
 ## make components_install CONFIRM_INSTALL=yes SSM_BASE=/ssm/net/rpn/MIG SSM_BASE2=""
 ## make components_install CONFIRM_INSTALL=yes SSM_BASE=/fs/ssm/eccc/mrd/rpn/MIG SSM_BASE2=""
@@ -65,7 +65,7 @@ make components_install CONFIRM_INSTALL=yes
 
 ssh MY_INSTALL_MACH
 cd /PATH/
-. ./.setenv.dot
+. ./.setenv.dot --cmc # --science
 make components_uninstall UNINSTALL_CONFIRM=yes
 ## make components_uninstall UNINSTALL_CONFIRM=yes SSM_BASE=/ssm/net/rpn/MIG
 ## make components_uninstall UNINSTALL_CONFIRM=yes SSM_BASE=/fs/ssm/eccc/mrd/rpn/MIG

@@ -40,7 +40,7 @@ subroutine diagnosurf3(m, ni, nk, trnch, itask, kount)
    ! NK       vertical dimension
    ! TRNCH    row number
    ! ITASK    task number
-  integer, external :: series_isstep
+   logical, external :: series_isstep
 
 #define PTR1D(NAME2,IDX) busptr(vd%NAME2%i)%ptr(1+IDX,trnch)
 

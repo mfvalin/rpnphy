@@ -43,7 +43,7 @@ subroutine extdiag2(d, f, v, dsiz, fsiz, vsiz, kount, trnch, icpu, ni, nk)
    !*@/
    include "thermoconsts.inc"
    include "buses.cdk"
-   integer, external :: series_isstep, series_isvar
+   logical, external :: series_isstep, series_isvar
 
    character(len=4) :: oname
    integer :: i, k, ierget, s1, ord, kam, ivar, busidx
