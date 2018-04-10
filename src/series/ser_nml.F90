@@ -38,8 +38,7 @@ function ser_nml2(F_namelistf_S) result(F_istat)
    integer, parameter :: SER_NML_NONE = RMN_OK
    integer, parameter :: SER_NML_OK   = RMN_OK + 1
 
-   integer :: nrec,unf,i,j,err,options
-   character(len=256) :: tmp_S
+   integer :: err
    !-------------------------------------------------------------------
    F_istat = SER_NML_ERR
 
@@ -63,6 +62,7 @@ contains
    function ser_nml_init() result(m_istat)
       implicit none
       integer :: m_istat
+      integer :: i
       !----------------------------------------------------------------
       m_istat = RMN_OK
       P_serg_srsus_L = .false.
@@ -85,7 +85,7 @@ contains
       implicit none
       character(len=*), intent(in) :: m_namelist
       integer :: m_istat
-      character(len=256) :: msg_S, namelist_S, name_S
+      character(len=1024) :: msg_S, namelist_S, name_S
       integer :: istat, unf
       !----------------------------------------------------------------
       m_istat = RMN_ERR
@@ -128,11 +128,10 @@ contains
    subroutine ser_nml_print()
       implicit none
       integer, external :: msg_getUnit
-      integer :: unout
+      integer :: unout, i
       !----------------------------------------------------------------
       unout = msg_getUnit(MSG_INFO)
       if (unout > 0 .and. P_serg_srsus_L) then
-!!$         write(unout, nml=series)
          write(unout,*) "&series"
          write(unout,*) "P_serg_serstp =",P_serg_serstp
          write(unout,*) "P_serg_srwri  =",P_serg_srwri
@@ -168,8 +167,8 @@ contains
       integer :: m_istat
 
       integer, external :: msg_getUnit
-      integer :: istat, unout, options, iverb
-      character(len=512) :: str512
+      integer :: istat, unout, options, iverb, i, j 
+      character(len=1024) :: str512
       !----------------------------------------------------------------
       m_istat = RMN_ERR
 

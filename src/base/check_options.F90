@@ -21,8 +21,8 @@ function check_options2() result(F_istat)
    implicit none
 #include <arch_specific.hf>
    !@Object Check the consistency of some options
-   !@Note 
-   !  Option validation and derived options setting are now done in 
+   !@Note
+   !  Option validation and derived options setting are now done in
    !  phy_nml (phy_nml_check and phy_nml_post_init)
    !@returns
    integer :: F_istat
@@ -42,7 +42,7 @@ function check_options2() result(F_istat)
    !                                    Allow Bechtold with moistke.
    ! 007      L. Spacek    (Sep 2011)   Eliminate obsolete options
    ! 008      J. Milbrandt (Mar 2015) - Added options for MP_MY2 (new) and MP_P3
-   ! 009      A. Glazer   (July 2015) - Added options for lightning diagnostics 
+   ! 009      A. Glazer   (July 2015) - Added options for lightning diagnostics
    !*@/
 
 #include <msg.h>
@@ -118,12 +118,6 @@ function check_options2() result(F_istat)
 
    endif
 
-   if ( PCPTYPE == 'BOURGE')then
-      if (STCOND(1:2) == 'MP')   then
-         call msg(MSG_ERROR,'(check_options) option mismatch: with PCPTYPE = BOURGE you cannot use STCOND=MP_MY2_OLD, MP_MY2, or MP_P3')
-         return
-      endif
-   endif
 
    if (LIGHTNING_DIAG) then
       if (STCOND(1:6) /= 'MP_MY2')   then
@@ -132,13 +126,15 @@ function check_options2() result(F_istat)
       endif
    endif
 
-   if ( PCPTYPE == 'BOURGE3D')then
-      if (STCOND /= 'CONSUN'    .or. &
-           (CONVEC /= 'KFC' .and. CONVEC /= 'BECHTOLD')  )   then
+
+   if (PCPTYPE == 'BOURGE3D') then
+      if (.not.(STCOND == 'CONSUN' .or. STCOND(1:2) == 'MP') .or. &
+          (CONVEC /= 'KFC' .and. CONVEC /= 'BECHTOLD') ) then
          call msg(MSG_ERROR,'(check_options) option mismatch: with PCPTYPE=BOURGE3D you can only use STCOND=CONSUN or KFC')
          return
       endif
    endif
+
 
    if (stcond == 'MP_P3' .and. (mp_p3_ncat < 1 .or. mp_p3_ncat > 4)) then
       write(str512, '(a,i2,a)') '(check_options) STCOND = MP_P3 option MP_P3_NCAT=',mp_p3_ncat,' (MUST BE BETWEEN 1 AND 4)'
