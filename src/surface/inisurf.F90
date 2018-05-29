@@ -53,8 +53,11 @@ subroutine inisurf4(kount, ni, nk, trnch)
    real    :: prcor
    integer :: i, k
 
-   real, pointer, dimension(:) :: zalen, zdhdx, zdhdxdy, zdhdxdyen, zdhdxen, zdhdy, zdhdyen, zepstfn, zglacen, zglacier, zglsea, zglsea0, zglseaen, zicedp, zicedpen, ziceline, zicelinen, zlhtg, zlhtgen, zmg, zmgen, zml, zresa, zsnoal, zsnoalen, zsnoagen, zsnoden, zsnoma, zsnoro, zsnoroen, ztsrad, ztwater, ztwateren, zwveg, zwvegen, zwsnow, zwsnowen, zz0en
-   real, pointer, dimension(:,:) :: zalvis, zclay, zclayen, zisoil, zisoilen, zsand, zsanden, zsnodp, zsnodpen, ztglacen, ztglacier, ztmice, ztmicen, ztmoins, ztsoil, ztsoilen, zvegf, zvegfen, zwsoil, zwsoilen, zz0, zz0t
+   real, pointer, dimension(:) :: zalen, zdhdx, zdhdxdy, zdhdxdyen, zdhdxen, zdhdy, zdhdyen, zepstfn, zglacen, zglacier, zglsea, zglsea0, & 
+                                  zglseaen, zicedp, zicedpen, ziceline, zicelinen, zlhtg, zlhtgen, zmg, zmgen, zml, zresa, zsnoal, zsnoalen, & 
+                                  zsnoagen, zsnoden, zsnoma, zsnoro, zsnoroen, ztsrad, ztwater, ztwateren, zwveg, zwvegen, zwsnow, zwsnowen, zz0en
+   real, pointer, dimension(:,:) :: zalvis, zclay, zclayen, zisoil, zisoilen, zsand, zsanden, zsnodp, zsnodpen, ztglacen, ztglacier, ztmice, & 
+                                  ztmicen, ztmoins, ztsoil, ztsoilen, zvegf, zvegfen, zwsoil, zwsoilen, zz0, zz0t
 
 #define MKPTR1D(NAME1,NAME2) nullify(NAME1); if (vd%NAME2%i > 0 .and. associated(busptr(vd%NAME2%i)%ptr)) NAME1(1:ni) => busptr(vd%NAME2%i)%ptr(:,trnch)
 #define MKPTR2D(NAME1,NAME2) nullify(NAME1); if (vd%NAME2%i > 0 .and. associated(busptr(vd%NAME2%i)%ptr)) NAME1(1:ni,1:vd%NAME2%mul*vd%NAME2%niveaux) => busptr(vd%NAME2%i)%ptr(:,trnch)

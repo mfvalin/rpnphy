@@ -21,7 +21,7 @@ module phy_getmeta_mod
    private
 #include <rmnlib_basics.hf>
 #include <msg.h>
-#include <gmm.hf>
+!!!! #include <gmm.hf>
 #include <clib_interface_mu.hf>
    include "buses.cdk"
    include "phygrd.cdk"

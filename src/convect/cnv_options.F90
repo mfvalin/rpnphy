@@ -152,7 +152,7 @@ module cnv_options
    character(len=16) :: shal            = 'nil'
    namelist /convection_cfgs/ shal
    character(len=*), parameter :: SHAL_OPT(4) = (/ &
-        'KTRSNT_MG', 'KTRSNT', 'BECHTOLD', 'NIL' &
+        'KTRSNT_MG', 'KTRSNT   ', 'BECHTOLD ', 'NIL      ' &
         /)
 
    !# Over land and lakes we keep the value set by the "ramp" above over sea water:

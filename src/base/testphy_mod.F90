@@ -10,7 +10,7 @@ module testphy_mod
 
   ! External parameters
   integer, parameter, public :: PT_STDOUT=6,PT_STDERR=0,PT_OK=0,PT_ERR=-1
-  character(len=*), dimension(2), parameter, public :: PT_TEST_TYPES=(/'full','itf'/)
+  character(len=*), dimension(2), parameter, public :: PT_TEST_TYPES=(/'full','itf '/)
 
   ! External subprograms
   public :: pt_run

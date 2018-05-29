@@ -38,7 +38,7 @@ function phyfillbus(F_kount) result(F_istat)
    integer, parameter :: NVARMAX = 256
    integer, parameter :: MUST_INIT = 1
    character(len=*), parameter :: FLD_INIT(4) = &
-        (/'TDMASK', 'DLAT', 'DLON', 'DXDY'/)
+        (/'TDMASK', 'DLAT  ', 'DLON  '  , 'DXDY  '/)
 
    integer, save :: nvars = 0
    type(phymeta), pointer,save :: metalist(:) => null()

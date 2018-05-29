@@ -363,7 +363,7 @@ module phy_options
    namelist /physics_cfgs/ pbl_shal
    namelist /physics_cfgs_p/ pbl_shal
    character(len=*), parameter :: PBL_SHAL_OPT(5) = (/ &
-        'SHALODQC', 'SHALOW', 'CONRES', 'GELEYN', 'NIL' &
+        'SHALODQC', 'SHALOW  ', 'CONRES  ', 'GELEYN  ', 'NIL     ' &
         /)
 
    !# Time splitting (number of steps per model step) for the coupled PBL scheme
